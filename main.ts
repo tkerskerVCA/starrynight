@@ -1,5 +1,5 @@
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Projectile, function (sprite, otherSprite) {
-    game.splash("oh no")
+    game.splash("uh oh")
     sprites.destroy(sprite, effects.fire, 500)
 })
 let projectile: Sprite = null
