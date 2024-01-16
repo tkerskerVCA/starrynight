@@ -1,6 +1,7 @@
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Projectile, function (sprite, otherSprite) {
     mySprite.sayText("uh oh")
-    sprites.destroy(sprite, effects.rings, 500)
+    sprites.destroy(sprite, effects.fire, 500)
+    game.setGameOverMessage(false, "GAME OVER!")
 })
 let projectile: Sprite = null
 let mySprite: Sprite = null
