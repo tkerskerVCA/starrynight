@@ -1,5 +1,5 @@
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Projectile, function (sprite, otherSprite) {
-    sprites.destroy(sprite, effects.fire, 500)
+    sprites.destroy(sprite, effects.rings, 500)
 })
 let projectile: Sprite = null
 let mySprite = sprites.create(img`
