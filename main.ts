@@ -1,8 +1,9 @@
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Projectile, function (sprite, otherSprite) {
     mySprite.sayText("uh oh")
     sprites.destroy(sprite, effects.fire, 500)
-    game.setGameOverMessage(false, "GAME OVER!")
+    game.setGameOverMessage(true, "GAME OVER!")
 })
+let mySprite2: Sprite = null
 let projectile: Sprite = null
 let mySprite: Sprite = null
 mySprite = sprites.create(img`
@@ -44,5 +45,24 @@ game.onUpdateInterval(500, function () {
         . . . . . . . . . . . . . . . . 
         `, randint(-90, -30), 50)
     projectile.y = randint(0, scene.screenHeight())
-    projectile.setFlag(SpriteFlag.Ghost, false)
+    mySprite2 = sprites.create(img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . b b . . . . . . . 
+        . . . . . . b 5 5 b . . . . . . 
+        . . . b b b 5 5 1 1 b b b . . . 
+        . . . b 5 5 5 5 1 1 5 5 b . . . 
+        . . . . b d 5 5 5 5 d b . . . . 
+        . . . . c b 5 5 5 5 b c . . . . 
+        . . . . c 5 d d d d 5 c . . . . 
+        . . . . c 5 d c c d 5 c . . . . 
+        . . . . c c c . . c c c . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        `, SpriteKind.Player)
+    mySprite2.setPosition(randint(0, scene.screenHeight()), 0)
+    mySprite2.setVelocity(50, 50)
 })
