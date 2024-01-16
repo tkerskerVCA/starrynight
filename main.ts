@@ -1,7 +1,11 @@
+namespace SpriteKind {
+    export const Booster = SpriteKind.create()
+}
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Projectile, function (sprite, otherSprite) {
     mySprite.sayText("uh oh")
     sprites.destroy(sprite, effects.rings, 500)
 })
+let mySprite2: Sprite = null
 let projectile: Sprite = null
 let mySprite: Sprite = null
 mySprite = sprites.create(img`
@@ -43,5 +47,25 @@ game.onUpdateInterval(500, function () {
         . . . . . . . . . . . . . . . . 
         `, randint(-90, -30), 50)
     projectile.y = randint(0, scene.screenHeight())
-    projectile.setFlag(SpriteFlag.Ghost, false)
+    mySprite2 = sprites.create(img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . b b . . . . . . . 
+        . . . . . . b 5 5 b . . . . . . 
+        . . . b b b 5 5 1 1 b b b . . . 
+        . . . b 5 5 5 5 1 1 5 5 b . . . 
+        . . . . b d 5 5 5 5 d b . . . . 
+        . . . . c b 5 5 5 5 b c . . . . 
+        . . . . c 5 d d d d 5 c . . . . 
+        . . . . c 5 d c c d 5 c . . . . 
+        . . . . c c c . . c c c . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        `, SpriteKind.Booster)
+    mySprite2.x = randint(0, scene.screenWidth())
+    mySprite2.y = randint(0, scene.screenHeight())
+    mySprite2.setVelocity(randint(-90, -30), 50)
 })
