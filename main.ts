@@ -1,8 +1,10 @@
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Projectile, function (sprite, otherSprite) {
+    mySprite.sayText("uh oh")
     sprites.destroy(sprite, effects.rings, 500)
 })
 let projectile: Sprite = null
-let mySprite = sprites.create(img`
+let mySprite: Sprite = null
+mySprite = sprites.create(img`
     . . . . . . . . . c c 8 . . . . 
     . . . . . . 8 c c c f 8 c c . . 
     . . . c c 8 8 f c a f f f c c . 
